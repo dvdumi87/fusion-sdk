@@ -94,7 +94,7 @@ export class Quote {
             : params.nonce
 
         const takerAsset = this.params.toTokenAddress.isNative()
-            ? CHAIN_TO_WRAPPER[paramsData.network]
+            ? CHAIN_TO_WRAPPER[paramsData.network as keyof typeof CHAIN_TO_WRAPPER]
             : this.params.toTokenAddress
 
         return FusionOrder.new(
